@@ -1,4 +1,6 @@
 # wb_thingie
+больше для меня памятка
+
 ЗАПУСК СЕРВЕРА (ВРУБИТЬ ДОКЕРА И ПОСТГРЕС)
   docker run -d --name nats-streaming -p 4222:4222 -p 8222:8222 nats-streaming:latest
 
