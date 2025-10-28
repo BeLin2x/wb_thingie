@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Service - Просмотр заказов</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📦 Order Service</h1>
+            <p>Система просмотра заказов</p>
+        </header>
+
+        <main>
+            <div class="search-section">
+                <h2>Найти заказ</h2>
+                <div class="search-form">
+                    <input type="text" id="orderId" placeholder="Введите ID заказа (например: b563feb7b2b84b6test)" />
+                    <button onclick="loadOrder()">Найти заказ</button>
+                </div>
+                <div class="example">
+                    <small>Пример ID: <code>b563feb7b2b84b6test</code></small>
+                </div>
+            </div>
+
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Загружаем данные...</p>
+            </div>
+
+            <div id="error" class="error hidden">
+                <h3>❌ Ошибка</h3>
+                <p id="errorMessage"></p>
+            </div>
+
+            <div id="orderInfo" class="order-info hidden">
+                <h2>Информация о заказе</h2>
+                
+                <div class="order-section">
+                    <h3>📋 Основная информация</h3>
+                    <div class="info-grid">
+                        <div><strong>Order UID:</strong> <span id="orderUid"></span></div>
+                        <div><strong>Track Number:</strong> <span id="trackNumber"></span></div>
+                        <div><strong>Entry:</strong> <span id="entry"></span></div>
+                        <div><strong>Locale:</strong> <span id="locale"></span></div>
+                        <div><strong>Customer ID:</strong> <span id="customerId"></span></div>
+                        <div><strong>Delivery Service:</strong> <span id="deliveryService"></span></div>
+                        <div><strong>Date Created:</strong> <span id="dateCreated"></span></div>
+                    </div>
+                </div>
+
+                <div class="order-section">
+                    <h3>🚚 Доставка</h3>
+                    <div class="info-grid">
+                        <div><strong>Name:</strong> <span id="deliveryName"></span></div>
+                        <div><strong>Phone:</strong> <span id="deliveryPhone"></span></div>
+                        <div><strong>Zip:</strong> <span id="deliveryZip"></span></div>
+                        <div><strong>City:</strong> <span id="deliveryCity"></span></div>
+                        <div><strong>Address:</strong> <span id="deliveryAddress"></span></div>
+                        <div><strong>Region:</strong> <span id="deliveryRegion"></span></div>
+                        <div><strong>Email:</strong> <span id="deliveryEmail"></span></div>
+                    </div>
+                </div>
+
+                <div class="order-section">
+                    <h3>💳 Платеж</h3>
+                    <div class="info-grid">
+                        <div><strong>Transaction:</strong> <span id="paymentTransaction"></span></div>
+                        <div><strong>Currency:</strong> <span id="paymentCurrency"></span></div>
+                        <div><strong>Provider:</strong> <span id="paymentProvider"></span></div>
+                        <div><strong>Amount:</strong> <span id="paymentAmount"></span></div>
+                        <div><strong>Bank:</strong> <span id="paymentBank"></span></div>
+                        <div><strong>Delivery Cost:</strong> <span id="paymentDeliveryCost"></span></div>
+                        <div><strong>Goods Total:</strong> <span id="paymentGoodsTotal"></span></div>
+                    </div>
+                </div>
+
+                <div class="order-section">
+                    <h3>🛍️ Товары</h3>
+                    <div id="itemsList" class="items-list">
+                        <!-- Товары будут добавляться здесь -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Order Service &copy; 2024</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
